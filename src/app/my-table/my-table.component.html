@@ -1,0 +1,18 @@
+
+<table>
+<thead>
+
+    <th *ngFor="let field of fields">{{field}}</th>
+</thead>
+
+
+<tr *ngFor="let p of products">
+    <td  *ngFor="let field of fields" >
+        
+        <!-- <input [attr.data-type]="field"  [(ngModel)]={{p[field]}}/> -->
+        <input [attr.data-type]="field"  [(ngModel)]="p[field]"/>
+        
+        </td>
+    <td><button (click)="updateProduct(p.id)">update</button>  <button (click)="delete(p.id)">delete</button></td>
+</tr>
+</table>

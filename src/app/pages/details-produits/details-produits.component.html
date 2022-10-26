@@ -13,6 +13,9 @@
     <br>{{unproduit.name}}
     <br>{{unproduit.price}}
  </div> --> 
+<app-my-table [products]="dataSource0"></app-my-table>
+<app-my-table [products]="dataSource1"></app-my-table>
+<app-my-table [products]="dataSource2"></app-my-table>
 
 
  <div>
@@ -23,12 +26,20 @@
   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element">
+        
+        <input/>
+        
+        
+        {{element.id}} </td>
     </ng-container>
   
     <ng-container matColumnDef="Nom">
       <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let element">  
+        <input/>
+        
+        {{element.name}} </td>
     </ng-container>
   
     <ng-container matColumnDef="Prix">

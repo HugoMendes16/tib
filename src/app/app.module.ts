@@ -12,6 +12,8 @@ import {MatTableModule} from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ProductsService } from './core/services/products.service';
+import { MyTableComponent } from './my-table/my-table.component';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ProductsService } from './core/services/products.service';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    DetailsProduitsComponent
+    DetailsProduitsComponent,
+    MyTableComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { ProductsService } from './core/services/products.service';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FormsModule,
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

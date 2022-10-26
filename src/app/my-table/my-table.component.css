@@ -1,0 +1,10 @@
+
+
+input[data-type="id"],input[data-type="name"]{
+    pointer-events: none;
+    width:2em;
+    border:0;
+
+}
+
+input{ max-width: 10ch;}
