@@ -11,7 +11,7 @@ export interface Product {
     owner: String;
     unit: String;
     name: String;
-    quantity_stock: Number;
+    quantityInStock: Number;
     quantity_sold: Number;
 }
 

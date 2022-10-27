@@ -30,7 +30,7 @@ export class DetailsProduitsComponent implements OnInit {
   }
 
   getProducts(){
-    this.productsService.getProductsFromJson().subscribe((res: Product[]) => {
+    this.productsService.getProducts().subscribe((res:any) => {
       this.listeProduits = res;
       for (let p of this.listeProduits) {
 
@@ -88,9 +88,27 @@ export class DetailsProduitsComponent implements OnInit {
       }
     );
   }
+
+  setStock(value: any, produit: Product){
+    produit.quantityInStock= value + produit.quantityInStock;
+  }
+
+  onKey(event : any)
+  {const inputValue = event.target.value;
+    event.target.style.background = 'red';
+    if (inputValue > 100 ) {
+      event.target.style.background = 'red';
+      return alert("Le pourcentage doit être inférieur à 100.");
+    }
+    if (inputValue<0){
+      event.target.style.background = 'red';
+      return alert("Le pourcentage doit être supérieur a 0.")
+    }
+    event.target.style.background = '';
+
+  }
   
   ngOnInit(): void {
     this.getProducts();
-    this.getProduct(2)
   }
 }
