@@ -20,20 +20,6 @@ fields=["id","name","price","quantity_stock","quantity_sold","unit","discount"]
 
 
   updateProduct(id:any){
-
-    console.log("updaating "+id)
-    console.log(typeof id)
-
     const product=this.products.filter(p=>p.id==id);
-
-
-    console.log(product)
-
-  }
-
-  delete(id:any){
-
-    console.log("deleting")
-    
   }
 }

@@ -11,7 +11,8 @@ import { Product } from '../../core/interfaces/product';
 
 export class DetailsProduitsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'Nom', 'Prix', 'Prix en promo','% Promo','Quantité en stock','Nb Article Vendu','Commentaire'];  listeProduits: Product[] = [];
+  displayedColumns: string[] = ['id', 'Nom', 'Prix', 'Prix en promo','% Promo','Quantité en stock','Nb Article Vendu','Commentaire']; 
+  listeProduits: Product[] = [];
   dataSource0: Product[] = [];
   dataSource1: Product[] = [];
   dataSource2: Product[] = [];
