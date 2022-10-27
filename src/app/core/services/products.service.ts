@@ -11,6 +11,7 @@ export class ProductsService {
   getProductsFromJson(){
     return this.http.get<Product[]>("../assets/data/Products.json");
   }
+  
 }
 
 
