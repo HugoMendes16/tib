@@ -1,17 +1,17 @@
 export interface Product {
 
     comments: String;
-    category: Number;
+    category: number;
     availability: Boolean;
-    id: Number;
-    price: Number;
-    price_on_sale: Number;
-    discount: Number;
+    tig_id: number;
+    price: number;
+    price_on_sale: number;
+    discount: number;
     sale: Boolean;
     owner: String;
     unit: String;
     name: String;
-    quantityInStock: Number;
-    quantity_sold: Number;
+    quantityInStock: number;
+    quantity_sold: number;
 }
 

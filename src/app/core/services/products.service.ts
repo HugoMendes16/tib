@@ -18,6 +18,17 @@ export class ProductsService {
     return this.http.get(this.urlServ + "/infoproducts/");
   }
 
+  addProductInStock(tig_id : number, quantity: number){
+    return this.http.get(this.urlServ + "/incrementStock/"+tig_id+"/"+quantity)
+  } 
+
+  removeProductInStock(tig_id : number, quantity: number){
+    return this.http.get(this.urlServ + "/decrementStock/"+tig_id+"/"+quantity)
+  } 
+
+  modifyPromotion(tig_id :number, percent : number) {
+    return this.http.get(this.urlServ + "/putonsale/"+tig_id+"/"+percent)
+  }
   
 }
 

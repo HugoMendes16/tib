@@ -23,6 +23,10 @@ export class DetailsProduitsComponent implements OnInit {
   show0: boolean = false;
   show1: boolean = false;
   show2: boolean = false;
+  inputStockValue: any;
+  inputPromoValue: any;
+  
+
  
 
 
@@ -57,7 +61,7 @@ export class DetailsProduitsComponent implements OnInit {
     this.productsService.getProductsFromJson().subscribe((res: Product[]) => {
       this.listeProduits = res;
       for (let p of this.listeProduits) {
-        if (id == p.id) {
+        if (id == p.tig_id) {
           this.unproduit = p;
           console.log(this.unproduit);
           break;
@@ -89,25 +93,36 @@ export class DetailsProduitsComponent implements OnInit {
     );
   }
 
-  setStock(value: any, produit: Product){
-    produit.quantityInStock= value + produit.quantityInStock;
+  addQuantityStock(produit: Product){
+    if(this.inputStockValue){
+      this.productsService.addProductInStock(produit.tig_id,this.inputStockValue).subscribe(res => {
+        this.unproduit = res;
+        this.unproduit.quantityInStock += this.inputStockValue;
+      })
+    }
   }
 
-  onKey(event : any)
-  {const inputValue = event.target.value;
-    event.target.style.background = 'red';
-    if (inputValue > 100 ) {
-      event.target.style.background = 'red';
-      return alert("Le pourcentage doit être inférieur à 100.");
+  subQuantityStock(produit: Product){
+    if(this.inputStockValue){
+      this.productsService.removeProductInStock(produit.tig_id,this.inputStockValue).subscribe(res => {
+        this.unproduit = res;
+        this.unproduit.quantityInStock -= this.inputStockValue;
+      })
     }
-    if (inputValue<0){
-      event.target.style.background = 'red';
-      return alert("Le pourcentage doit être supérieur a 0.")
-    }
-    event.target.style.background = '';
-
   }
-  
+
+  modifyPromotion(produit: Product){
+    if(this.inputPromoValue){
+      this.productsService.modifyPromotion(produit.tig_id,this.inputPromoValue).subscribe(res => {
+        this.unproduit = res;
+        this.unproduit.discount = this.inputPromoValue;
+      })
+    }
+  }
+
+
+
+
   ngOnInit(): void {
     this.getProducts();
   }

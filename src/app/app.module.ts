@@ -14,6 +14,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ProductsService } from './core/services/products.service';
 import { MyTableComponent } from './my-table/my-table.component';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { FormsModule, NgForm, NgModel } from '@angular/forms';
     MatSortModule,
     FormsModule,
   ],
-  providers: [ProductsService],
+  providers: [ProductsService,  {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
